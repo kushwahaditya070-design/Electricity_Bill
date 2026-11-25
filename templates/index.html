@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101111">
+  <meta name="description" content="An intelligent electricity consumption and bill prediction platform powered by machine learning.">
+  <title>ENERGY / INTELLIGENCE — Electricity Bill Prediction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<div class="loader"><span class="loader-mark">E<span>·</span>I</span><div class="loader-line"><i></i></div><small>ENERGY INTELLIGENCE / INITIALIZING</small></div>
+<div class="cursor"></div><div class="cursor-ring"></div>
+<header class="topbar">
+  <a class="brand" href="#home"><span class="brand-symbol">E<span>·</span></span><span>ENERGY<br>INTELLIGENCE</span></a>
+  <nav><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#prediction">PREDICTION</a><a href="#analytics">ANALYTICS</a><a href="#method">METHODOLOGY</a></nav>
+  <a class="nav-cta" href="#prediction">RUN A FORECAST <span>↗</span></a>
+  <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+</header>
+
+<main>
+<section class="hero section-pad" id="home">
+  <div class="hero-kicker"><span class="live-dot"></span> A MACHINE LEARNING STUDY / INDIA <span class="mono">VOL. 001 — 2026</span></div>
+  <div class="hero-copy"><p class="eyebrow">THE LANGUAGE OF POWER</p><h1>UNDERSTANDING<br>YOUR <em>ENERGY.</em></h1>
+    <div class="hero-bottom"><p>Every unit tells a story.<br>An intelligent electricity consumption and bill prediction platform powered by Machine Learning.</p><a class="round-link" href="#about" aria-label="Explore the project">↓</a></div>
+  </div>
+  <div class="hero-art">
+    <svg class="landscape" viewBox="0 0 1200 390" role="img" aria-label="Technical line illustration of wind turbines, solar panels and electricity grid">
+      <defs><linearGradient id="flow"><stop stop-color="#d8a83e" stop-opacity="0"/><stop offset=".5" stop-color="#d8a83e"/><stop offset="1" stop-color="#d8a83e" stop-opacity="0"/></linearGradient></defs>
+      <path class="draw" d="M20 310H1180" />
+      <g class="turbine t1"><path class="draw" d="M180 310V110"/><circle cx="180" cy="110" r="7"/><path class="blade draw" d="M180 110L166 15 M180 110L90 140 M180 110L245 190"/></g>
+      <g class="turbine t2"><path class="draw" d="M340 310V175"/><circle cx="340" cy="175" r="5"/><path class="blade draw" d="M340 175L295 112 M340 175L407 160 M340 175L322 242"/></g>
+      <g class="turbine t3"><path class="draw" d="M80 310V220"/><circle cx="80" cy="220" r="4"/><path class="blade draw" d="M80 220L25 170 M80 220L130 200 M80 220L62 275"/></g>
+      <g class="solar"><path class="draw" d="M610 310L650 220H760L725 310Z M650 220L690 310 M705 220L680 310 M632 265H743 M790 310L830 220H940L905 310Z M830 220L870 310 M885 220L860 310 M812 265H923"/></g>
+      <g class="grid-tower"><path class="draw" d="M1050 310L1080 80L1110 310 M1062 210H1098 M1068 165H1092 M1074 120H1086 M1057 250L1103 165 M1103 250L1057 165 M1062 210L1098 120 M1098 210L1062 120"/></g>
+      <path class="energy-path" d="M180 110C350 40 450 70 650 220S900 200 1080 80"/>
+      <circle class="spark" r="4"><animateMotion dur="7s" repeatCount="indefinite" path="M180 110C350 40 450 70 650 220S900 200 1080 80"/></circle>
+      <g class="art-label"><text x="80" y="350">WIND</text><text x="665" y="350">SOLAR</text><text x="1035" y="350">GRID</text></g>
+    </svg>
+    <div class="art-note mono">FIG. 01 — DISTRIBUTED ENERGY SYSTEMS <span>NOT TO SCALE</span></div>
+  </div>
+  <div class="hero-index mono"><span>01 / 06</span><span>SCROLL TO EXPLORE ↓</span><span>INDIA / IST</span></div>
+</section>
+
+<section class="intro section-pad" id="about">
+  <div class="section-tag"><span>01 — THE PREMISE</span><span class="line"></span><span>ENERGY, MADE UNDERSTANDABLE</span></div>
+  <div class="intro-grid"><h2>Small signals.<br><em>Big picture.</em></h2><div class="intro-text"><p class="lead">Electricity is measured in units. Understanding it takes a little more.</p><p>This project explores the relationship between household appliance usage, monthly operating hours and tariff rates — translating those signals into an estimated electricity bill through a trained regression model.</p><a class="text-link" href="#prediction">EXPLORE THE PREDICTOR <span>↗</span></a></div></div>
+  <div class="principles">
+    <article class="principle"><span class="mono">A / INPUT</span><div class="mini-icon">⌁</div><h3>Usage patterns</h3><p>Appliance counts and monthly operating hours form the input signal.</p></article>
+    <article class="principle"><span class="mono">B / MODEL</span><div class="mini-icon">∿</div><h3>Learned relations</h3><p>A saved polynomial regression model maps selected features to a bill estimate.</p></article>
+    <article class="principle"><span class="mono">C / OUTPUT</span><div class="mini-icon">↗</div><h3>Clear estimates</h3><p>A transparent result helps make household energy patterns easier to read.</p></article>
+  </div>
+</section>
+
+<section class="gallery section-pad">
+  <div class="section-tag"><span>02 — FIELD NOTES</span><span class="line"></span><span>THE SYSTEM IN FIVE FRAMES</span></div>
+  <div class="gallery-grid">
+    <article class="gallery-card card-wide"><div class="card-top mono"><span>01 / CONSUMPTION</span><span>LOAD PROFILE</span></div><svg viewBox="0 0 600 210"><path class="sketch" d="M20 175H580M35 145L110 110L180 130L260 55L335 90L410 35L490 80L565 28"/><path class="gold-sketch" d="M35 145L110 110L180 130L260 55L335 90L410 35L490 80L565 28"/></svg><h3>Energy consumption</h3><p class="mono">A household is a changing demand curve.</p></article>
+    <article class="gallery-card"><div class="card-top mono"><span>02 / GENERATION</span><span>RENEWABLES</span></div><svg viewBox="0 0 300 210"><path class="sketch" d="M15 180H285M80 180V75M80 75L70 18M80 75L35 95M80 75L125 120M175 180L190 115H260L245 180M190 145H250"/></svg><h3>Electricity generation</h3><p class="mono">Wind, sun and the grid.</p></article>
+    <article class="gallery-card"><div class="card-top mono"><span>03 / DISTRIBUTION</span><span>SMART GRID</span></div><svg viewBox="0 0 300 210"><path class="sketch" d="M15 105H285M50 105L80 55L110 105L140 55L170 105L200 55L230 105"/><circle class="gold-dot" cx="80" cy="55" r="4"/><circle class="gold-dot" cx="170" cy="105" r="4"/></svg><h3>Smart grid</h3><p class="mono">An interconnected network.</p></article>
+    <article class="gallery-card"><div class="card-top mono"><span>04 / EFFICIENCY</span><span>OPTIMIZATION</span></div><svg viewBox="0 0 300 210"><path class="sketch" d="M20 180H280M45 180V115H95V180M125 180V75H175V180M205 180V35H255V180"/><path class="gold-sketch" d="M45 95L125 55L205 20"/></svg><h3>Energy efficiency</h3><p class="mono">Less waste, better awareness.</p></article>
+    <article class="gallery-card card-wide"><div class="card-top mono"><span>05 / ANALYSIS</span><span>MONTHLY SIGNAL</span></div><svg viewBox="0 0 600 210"><path class="sketch" d="M20 180H580M20 30V180M25 145C80 140 90 75 150 90S225 150 285 105S390 45 430 85S520 120 575 35"/><path class="gold-sketch" d="M25 145C80 140 90 75 150 90S225 150 285 105S390 45 430 85S520 120 575 35"/></svg><h3>Monthly analysis</h3><p class="mono">Patterns become visible over time.</p></article>
+  </div>
+</section>
+
+<section class="visual-energy section-pad">
+  <div class="section-tag"><span>03 — THE LANDSCAPE</span><span class="line"></span><span>POWER, IN MOTION</span></div>
+  <div class="visual-heading"><h2>A living<br><em>infrastructure.</em></h2><p class="mono">GENERATION → TRANSMISSION → CONSUMPTION</p></div>
+  <div class="big-illustration">
+    <svg viewBox="0 0 1200 420" role="img" aria-label="Wind, solar and grid energy illustration">
+      <path class="draw" d="M0 340H1200"/>
+      <g class="turbine t1"><path class="draw" d="M140 340V110"/><circle cx="140" cy="110" r="8"/><path class="blade draw" d="M140 110L126 20M140 110L65 145M140 110L220 175"/></g>
+      <g class="turbine t2"><path class="draw" d="M300 340V180"/><circle cx="300" cy="180" r="6"/><path class="blade draw" d="M300 180L255 120M300 180L365 160M300 180L285 250"/></g>
+      <g><path class="draw" d="M560 340L600 230H750L710 340Z M600 230L640 340 M680 230L660 340 M580 285H730 M780 340L820 230H970L930 340Z M820 230L860 340 M900 230L880 340 M800 285H950"/></g>
+      <g><path class="draw" d="M1060 340L1090 75L1120 340M1070 235H1110M1078 175H1102M1085 120H1095M1067 265L1113 175M1113 265L1067 175"/></g>
+      <path class="energy-path" d="M140 110C300 20 430 100 600 230S900 170 1090 75"/>
+      <circle class="spark" r="4"><animateMotion dur="8s" repeatCount="indefinite" path="M140 110C300 20 430 100 600 230S900 170 1090 75"/></circle>
+      <g class="art-label"><text x="70" y="385">WIND / 01</text><text x="630" y="385">SOLAR / 02</text><text x="1040" y="385">GRID / 03</text></g>
+    </svg>
+    <div class="diagram-caption mono"><span>FIG. 02</span><span>ENERGY NETWORK / CONCEPTUAL DRAWING</span><span>● LIVE SIGNAL</span></div>
+  </div>
+</section>
+
+<section class="prediction section-pad" id="prediction">
+  <div class="section-tag"><span>04 — THE PREDICTOR</span><span class="line"></span><span>MODEL INTERFACE / 08 FEATURES</span></div>
+  <div class="prediction-heading"><h2>Estimate your<br><em>next bill.</em></h2><p>Enter the appliance and usage values below. The saved model will process your inputs and return an estimated electricity bill.</p></div>
+  <div class="predict-layout">
+    <form id="prediction-form" class="predict-form">
+      <div class="form-head mono"><span>HOUSEHOLD INPUTS</span><span>01 — 08</span></div>
+      <div class="form-grid">
+        <label class="field"><span>MONTHLY HOURS <i>hours / month</i></span><input type="number" name="MonthlyHours" min="95" max="926" value="515" step="1" required><small>Monthly operating hours used by the model.</small></label>
+        <label class="field"><span>TARIFF RATE <i>₹ / unit</i></span><input type="number" name="TariffRate" min="7.4" max="9.3" value="8.4" step="0.1" required><small>Rate per electricity unit.</small></label>
+        <label class="field"><span>AIR CONDITIONER <i>count / usage feature</i></span><input type="number" name="AirConditioner" min="0" max="3" value="1" step="1" required></label>
+        <label class="field"><span>REFRIGERATOR <i>count / usage feature</i></span><input type="number" name="Refrigerator" min="17" max="23" value="22" step="1" required></label>
+        <label class="field"><span>FAN <i>count / usage feature</i></span><input type="number" name="Fan" min="5" max="23" value="14" step="1" required></label>
+        <label class="field"><span>TELEVISION <i>count / usage feature</i></span><input type="number" name="Television" min="3" max="22" value="12" step="1" required></label>
+        <label class="field"><span>MONITOR <i>count / usage feature</i></span><input type="number" name="Monitor" min="1" max="12" value="2" step="1" required></label>
+        <label class="field"><span>MOTOR PUMP <i>count / usage feature</i></span><input type="number" name="MotorPump" min="0" max="0" value="0" step="1" required></label>
+      </div>
+      <div class="form-foot"><p class="mono">INPUT RANGES ARE DERIVED FROM THE PROVIDED DATASET.</p><button class="submit-btn" type="submit">CALCULATE ESTIMATE <span>↗</span></button></div>
+      <p class="form-error" id="form-error" role="alert"></p>
+    </form>
+    <aside class="result-panel" id="result-panel">
+      <div class="result-top mono"><span>MODEL OUTPUT</span><span class="result-status"><i></i> AWAITING INPUT</span></div>
+      <div class="result-placeholder"><span class="result-symbol">₹</span><p>YOUR ESTIMATE<br>WILL APPEAR HERE.</p><small>Submit the household profile to run the saved regression model.</small></div>
+      <div class="result-bottom mono"><span>MODEL / POLYNOMIAL REGRESSION</span><span>INR · ₹</span></div>
+    </aside>
+  </div>
+  <p class="disclaimer mono">IMPORTANT — THIS IS AN EDUCATIONAL MODEL ESTIMATE, NOT AN OFFICIAL UTILITY BILL. ACTUAL CHARGES MAY INCLUDE TAXES, FIXED FEES, SLABS AND OTHER LOCAL ADJUSTMENTS.</p>
+</section>
+
+<section class="analytics section-pad" id="analytics">
+  <div class="section-tag"><span>05 — DATA OBSERVATORY</span><span class="line"></span><span>45,345 ROWS / SOURCE DATASET</span></div>
+  <div class="analytics-heading"><h2>Read the<br><em>patterns.</em></h2><p>Exploratory views calculated directly from the supplied electricity dataset. Figures update from the CSV when the application starts.</p></div>
+  <div class="stats-grid">
+    <article class="stat"><span class="mono">01 / RECORDS</span><strong id="stat-records">—</strong><small>DATA POINTS</small></article>
+    <article class="stat"><span class="mono">02 / MEAN BILL</span><strong id="stat-bill">—</strong><small>AVERAGE / INR</small></article>
+    <article class="stat"><span class="mono">03 / MEAN HOURS</span><strong id="stat-hours">—</strong><small>HOURS / MONTH</small></article>
+    <article class="stat"><span class="mono">04 / TARIFF</span><strong id="stat-tariff">—</strong><small>AVERAGE / ₹ PER UNIT</small></article>
+  </div>
+  <div class="charts-grid">
+    <article class="chart-card chart-large"><div class="chart-head"><div><span class="mono">FIG. 03 / DISTRIBUTION</span><h3>Electricity bill distribution</h3></div><span class="mono">INR / FREQUENCY</span></div><canvas id="distributionChart"></canvas></article>
+    <article class="chart-card"><div class="chart-head"><div><span class="mono">FIG. 04 / MONTHLY</span><h3>Average bill by month</h3></div></div><canvas id="monthlyChart"></canvas></article>
+    <article class="chart-card"><div class="chart-head"><div><span class="mono">FIG. 05 / RELATIONSHIP</span><h3>Usage hours vs bill</h3></div></div><canvas id="scatterChart"></canvas></article>
+    <article class="chart-card chart-large"><div class="chart-head"><div><span class="mono">FIG. 06 / CORRELATION</span><h3>Feature correlation matrix</h3></div><span class="mono">PEARSON COEFFICIENT</span></div><div class="heatmap-wrap" id="heatmap"></div></article>
+  </div>
+</section>
+
+<section class="method section-pad" id="method">
+  <div class="section-tag"><span>06 — METHOD & MODEL</span><span class="line"></span><span>TRACEABLE / REPRODUCIBLE</span></div>
+  <div class="method-grid"><h2>A model with<br><em>provenance.</em></h2><div><p class="lead">The application loads the exact serialized artifact supplied with this project.</p><p>The saved artifact includes a degree-2 PolynomialFeatures + LinearRegression pipeline, a separately saved StandardScaler, and the ordered feature list. The API scales the eight inputs in that exact order before inference.</p><div class="model-facts"><div><span class="mono">ALGORITHM</span><strong>Polynomial Regression · Degree 2</strong></div><div><span class="mono">TARGET</span><strong>ElectricityBill</strong></div><div><span class="mono">FEATURES</span><strong>8 numerical inputs</strong></div><div><span class="mono">PREPROCESSING</span><strong>StandardScaler</strong></div><div><span class="mono">SOURCE DATA</span><strong>45,345 records · 13 columns</strong></div></div></div></div>
+  <div class="metric-note"><span class="mono">NOTE ON EVALUATION</span><p>The uploaded notebook records R² 1.0000, MAE 0.00 and RMSE 0.00 for its selected polynomial model. These are reproduced notebook claims; they should not be treated as independent evidence of generalization without a fresh, leakage-aware validation study.</p></div>
+</section>
+</main>
+<footer class="footer section-pad"><div class="footer-top"><a class="brand" href="#home"><span class="brand-symbol">E<span>·</span></span><span>ENERGY<br>INTELLIGENCE</span></a><p>Every unit tells a story.<br><em>Make the signal visible.</em></p><a class="back-top" href="#home">BACK TO TOP ↑</a></div><div class="footer-bottom mono"><span>ACADEMIC MACHINE LEARNING PROJECT</span><span>DESIGNED FOR CLARITY / BUILT WITH DATA</span><span>© 2026</span></div></footer>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body></html>
